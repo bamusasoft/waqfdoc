@@ -4,9 +4,157 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WDM.DocTrack.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:prism="http://www.codeplex.com/prism"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" FlowDirection="RightToLeft">
+    <i:Interaction.Triggers>
+        <prism:InteractionRequestTrigger SourceObject="{Binding ConfirmationRequest, Mode=OneWay}">
+            <custom:MyPopupWindowAction IsModal="True" />
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding NotificationRequest, Mode=OneWay}">
+            <custom:MyPopupWindowAction IsModal="True"/>
+        </prism:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0" Orientation="Horizontal">
+            <ToolBar BorderThickness="0" SnapsToDevicePixels="True">
+                <TextBox Name="txSearchedPaymentNo" Style="{StaticResource {x:Static ToolBar.TextBoxStyleKey} }" MinWidth="100" 
+                         Text="{Binding SearchedPaymentNo}" />
+                <Button Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=txSearchedPaymentNo}"
+                        IsEnabled="{Binding EnableSearch}">
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl Content="{StaticResource EnSearchImage}" Margin="0,0,5,0" />
+                        <TextBlock Text="بحث" />
+                    </StackPanel>
+                </Button>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey} }" />
+                <Button Command="{Binding SaveCommand}" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        IsEnabled="{Binding EnableSave}">
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl Content="{StaticResource EnSaveImage}" Margin="0,0,5,0" />
+                        <TextBlock Text="حفظ" />
+                    </StackPanel>
+                </Button>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey} }" />
+                <Button Command="{Binding DeleteCommand}" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        IsEnabled="{Binding EnableDelete}">
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl Content="{StaticResource EnDeleteImage}" Margin="0,0,5,0" />
+                        <TextBlock Text="حذف" />
+                    </StackPanel>
+                </Button>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey} }" />
+                <ComboBox ItemsSource="{Binding MembersGenders}" SelectedItem="{Binding SelectedGender}" SelectedValuePath="Key"
+                          DisplayMemberPath="Value" IsEnabled="{Binding EnableGenderFilter}" MinWidth="100" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}"/>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey} }" />
+                <Button Command="{Binding PrintCommand}" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        IsEnabled="{Binding EnablePrint}">
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl Content="{StaticResource EnPrintImage}" Margin="0,0,5,0" />
+                        <TextBlock Text="طباعة" />
+                    </StackPanel>
+                </Button>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey} }" />
+            </ToolBar>
+        </ToolBarTray>
+
+        <Grid Grid.Row="2" IsEnabled="{Binding EnableUi}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="رقم الصرفية" HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" Margin="3" />
+            <TextBox Grid.Row="1" Text="{Binding PaymentSequence}" Margin="3"
+                     VerticalContentAlignment="Center" IsEnabled="False" IsReadOnly="True" />
+            <TextBlock Text="لعام" HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" Margin="3" Grid.Row="2" />
+            <TextBox Grid.Row="3" Text="{Binding PaymentYear}" Margin="3"
+                     VerticalContentAlignment="Center" IsEnabled="False" IsReadOnly="True" />
+            <TextBlock Text="المبلغ"
+                VerticalAlignment="Center" Margin="3" Grid.Column="1" HorizontalAlignment="Left" />
+            <TextBox Grid.Row="1" Text="{Binding PaymentAmount ,StringFormat=F2, Converter={StaticResource NumToEmptyConverter}}" Margin="3"
+                VerticalContentAlignment="Center" IsEnabled="False" IsReadOnly="True" Grid.Column="1" />
+            <TextBlock Grid.Row="2" Text="الحالة"
+                VerticalAlignment="Center" Margin="3" Grid.Column="1" HorizontalAlignment="Left" />
+            <TextBox Grid.Row="3" Text="{Binding PaymentStatus}" Margin="3"
+                VerticalContentAlignment="Center" IsEnabled="False" IsReadOnly="True" Grid.Column="1" />
+            <Button x:Name="button" Content="عرض" Grid.Column="1" Margin="0,3,3,3" Grid.Row="4" 
+                    Command="{Binding GeneratePaymentTransCommand}"
+                    d:LayoutOverrides="Height" HorizontalAlignment="Right" Width="63.54"/>
+
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ProgressBar Grid.Column="0" Value="{Binding ProgressCounter}" 
+                         Maximum="100" Minimum="0" HorizontalAlignment="Stretch" Height="35" Margin="5" 
+                         VerticalAlignment="Stretch" 
+                         Visibility="{Binding ShowProgress, Converter={StaticResource Bool2VisibilityConverter}}"/>
+            <TextBlock   Grid.Column="1"  Text="{Binding ProgCurrent, UpdateSourceTrigger=PropertyChanged}" 
+                         Visibility="{Binding ShowProgress, Converter={StaticResource Bool2VisibilityConverter}}"
+                         />
+
+        </Grid>
+        <DataGrid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserAddRows="False" 
+                  ItemsSource="{Binding UiReport}" Margin="0,10,0,0" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="رقم المستحق"
+                                    Binding="{Binding ShareHolderCode, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" />
+                <DataGridTextColumn Header="الإسم" 
+                                    Binding="{Binding ShareHolderName}" Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="العام" 
+                                    Binding="{Binding PaymentYear}" Width="Auto" CanUserSort="False" />
+                <DataGridTextColumn Header="رقم الصرفية"
+                                    Binding="{Binding PaymentSequence}" Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="عدد الأسهم"
+                                    Binding="{Binding ShareNo, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="مبلغ الصرفية"
+                                    Binding="{Binding PaymentAmount, StringFormat=F2, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="الإجمالي"
+                                    Binding="{Binding TotalPayment, StringFormat=F2, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="مبلغ الإلتزام"
+                                    Binding="{Binding LoanAmount, StringFormat=F2, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="وصف الإلتزام"
+                                    Binding="{Binding LoanDescription}" Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="ملاحظات الإلتزام" 
+                                    Binding="{Binding LoanRemarks}" Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="إجمالي الإلتزامات"
+                                    Binding="{Binding LoansTotal, StringFormat=F2, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="صافي المنصرف"
+                                    Binding="{Binding NetPayments, StringFormat=F2, Converter={StaticResource NumToEmptyConverter}}"
+                                    Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="ط./الدفع"
+                                    Binding="{Binding PayMethod}" Width="Auto" CanUserSort="False"/>
+                <DataGridTextColumn Header="شيك/حوالة رقم"
+                                    Binding="{Binding BankDocNo, Converter={StaticResource NumToEmptyConverter}}" 
+                                    Width="Auto" CanUserSort="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
