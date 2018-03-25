@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlopManager.Services.ViewModelInfrastructure
+namespace WDM.Services.ViewModelInfrastructure
 {
     public enum ViewModelState
     {

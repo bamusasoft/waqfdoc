@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Regions;
 
-namespace FlopManager.Services.ViewModelInfrastructure
+namespace WDM.Services.ViewModelInfrastructure
 {
     public abstract class ContainerViewModelBase:ViewModelBase, INavigationAware
     {

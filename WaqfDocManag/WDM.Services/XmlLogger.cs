@@ -6,7 +6,7 @@ using System.IO;
 using System.Xml.Linq;
 using Prism.Logging;
 
-namespace FlopManager.Services
+namespace WDM.Services
 {
   
     [Export(typeof(ILogger))]

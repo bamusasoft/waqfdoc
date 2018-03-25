@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace FlopManager.Services.Converters
+namespace WDM.Services.Converters
 {
     public class NumberToEmptyConverter : IValueConverter
     {

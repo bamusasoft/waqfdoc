@@ -7,7 +7,7 @@ using System.Windows.Input;
 using Prism.Commands;
 using Prism.Regions;
 
-namespace FlopManager.Services.ViewModelInfrastructure
+namespace WDM.Services.ViewModelInfrastructure
 {
     public abstract class ListViewModelBase : ViewModelBase, INavigationAware
     {

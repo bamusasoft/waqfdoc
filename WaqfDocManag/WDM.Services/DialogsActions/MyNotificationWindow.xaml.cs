@@ -4,7 +4,7 @@
 using System.Windows;
 using Prism.Interactivity.InteractionRequest;
 
-namespace FlopManager.Services.CustomPopupActions
+namespace WDM.Services.DialogsActions
 {
     /// <summary>
     /// Interaction logic for NotificationChildWindow.xaml

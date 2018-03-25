@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Interactivity;
 using Prism.Interactivity.InteractionRequest;
 
-namespace FlopManager.Services.CustomPopupActions
+namespace WDM.Services.DialogsActions
 {
     /// <summary>
     /// Shows a popup window in response to an <see cref="InteractionRequest{T}"/> being raised.
@@ -206,11 +206,11 @@ namespace FlopManager.Services.CustomPopupActions
 
             if (notification is IConfirmation)
             {
-                window = new FlopManager.Services.CustomPopupActions.MyConfirmationWindow() { Confirmation = (IConfirmation)notification };
+                window = new WDM.Services.DialogsActions.MyConfirmationWindow() { Confirmation = (IConfirmation)notification };
             }
             else
             {
-                window = new FlopManager.Services.CustomPopupActions.MyNotificationWindow() { Notification = notification };
+                window = new WDM.Services.DialogsActions.MyNotificationWindow() { Notification = notification };
             }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 

@@ -3,7 +3,7 @@ using Prism.Mvvm;
 using System.Windows.Threading;
 using System.Windows;
 
-namespace FlopManager.Services.ViewModelInfrastructure
+namespace WDM.Services.ViewModelInfrastructure
 {
     public abstract class ViewModelBase : BindableBase
     {

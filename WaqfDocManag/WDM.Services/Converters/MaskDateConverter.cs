@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace FlopManager.Services.Converters
+namespace WDM.Services.Converters
 {
     class MaskDateConverter:IValueConverter
     {

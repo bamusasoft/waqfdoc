@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace FlopManager.Services.Converters
+namespace WDM.Services.Converters
 {
     public class TestConverter: IValueConverter
     {

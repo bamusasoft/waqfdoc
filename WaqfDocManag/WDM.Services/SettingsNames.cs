@@ -1,4 +1,4 @@
-﻿namespace FlopManager.Services
+﻿namespace WDM.Services
 {
     public static class SettingsNames
     {

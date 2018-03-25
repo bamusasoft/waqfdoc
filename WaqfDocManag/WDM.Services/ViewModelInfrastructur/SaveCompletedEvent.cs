@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Events;
 
-namespace FlopManager.Services.ViewModelInfrastructure
+namespace WDM.Services.ViewModelInfrastructure
 {
     public class SaveCompletedEvent:PubSubEvent<object>
     {

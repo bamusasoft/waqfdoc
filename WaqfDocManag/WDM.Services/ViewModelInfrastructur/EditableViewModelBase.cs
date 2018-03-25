@@ -10,7 +10,7 @@ using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Regions;
 
-namespace FlopManager.Services.ViewModelInfrastructure
+namespace WDM.Services.ViewModelInfrastructure
 {
     public abstract class EditableViewModelBase : ViewModelBase, INavigationAware, INotifyDataErrorInfo
     {
