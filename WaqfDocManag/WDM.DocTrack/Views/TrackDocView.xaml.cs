@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -13,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WDM.DocTrack.ViewModels;
+using WDM.Services.Events;
 
 namespace WDM.DocTrack.Views
 {
@@ -23,17 +26,29 @@ namespace WDM.DocTrack.Views
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public partial class TrackDocView : UserControl
     {
-        
+
+        IEventAggregator _eventAggregator;
         public TrackDocView()
         {
             InitializeComponent();
         }
+        [ImportingConstructor]
+        public TrackDocView(IEventAggregator eventAggregator) : this()
+        {
+            _eventAggregator = eventAggregator;
+            _eventAggregator.GetEvent<OneArgEvent<string>>().Subscribe(OnSelectedTypeChanged);
+        }
 
-        //[Import]
-        //public PaymentViewModel ViewModel
-        //{
-        //    get { return DataContext as PaymentViewModel; }
-        //    set { DataContext = value; }
-        //}
+        [Import]
+        public TrackDocViewModel ViewModel
+        {
+            get { return DataContext as TrackDocViewModel; }
+            set { DataContext = value; }
+        }
+        private void OnSelectedTypeChanged(string s)
+        {
+            trackContentPresenter.Content = s;
+
+        }
     }
 }

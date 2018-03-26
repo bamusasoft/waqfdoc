@@ -21,7 +21,7 @@ namespace WDM.DocTrack
 
         public void Initialize()
         {
-            RegionManager.RegisterViewWithRegion(RegionNames.MAIN_CONTENT_REGION, typeof(TrackDocNavigView));
+            RegionManager.RegisterViewWithRegion(RegionNames.MAIN_NAVIGATION_REGION, typeof(TrackDocNavigView));
         }
     }
 }

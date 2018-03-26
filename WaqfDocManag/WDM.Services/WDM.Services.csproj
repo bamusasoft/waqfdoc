@@ -89,6 +89,7 @@
     <Compile Include="DialogsActions\MyNotificationWindow.xaml.cs" />
     <Compile Include="DialogsActions\MyPopupWindowAction.cs" />
     <Compile Include="ErrorTemplate.cs" />
+    <Compile Include="Events\OneArgEvent.cs" />
     <Compile Include="ExceptionEncapsulation.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GlobalConfigService.cs" />
