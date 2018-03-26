@@ -53,6 +53,7 @@
       <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -99,6 +100,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AvalonDockRegionAdapter.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WdmSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -126,6 +133,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Assets\ImageResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WDM.DocTrack\WDM.DocTrack.csproj">
+      <Project>{9C414545-94ED-459B-AD38-414AF0943021}</Project>
+      <Name>WDM.DocTrack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WDM.Services\WDM.Services.csproj">
+      <Project>{8ADBD1BE-5C17-4482-A077-7602C326AD99}</Project>
+      <Name>WDM.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\AddNew.png" />
+    <Resource Include="Assets\Images\DisSave.jpg" />
+    <Resource Include="Assets\Images\EnDel.png" />
+    <Resource Include="Assets\Images\EnPost.png" />
+    <Resource Include="Assets\Images\EnPrint.png" />
+    <Resource Include="Assets\Images\EnSave.png" />
+    <Resource Include="Assets\Images\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

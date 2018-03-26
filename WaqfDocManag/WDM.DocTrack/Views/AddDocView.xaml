@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WDM.DocTrack.Views.TrackDoc"
+﻿<UserControl x:Class="WDM.DocTrack.Views.AddDocView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,45 +17,7 @@
             <custom:MyPopupWindowAction IsModal="True"/>
         </prism:InteractionRequestTrigger>
     </i:Interaction.Triggers>
-    <UserControl.Resources>
-        <DataTemplate x:Key="DocForward">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="ggfdgdg"/>
-                <TextBox Grid.Row="1" Text="ggfdgdg"/>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="DocResponse">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="ggfdgdg"/>
-                <TextBox Grid.Row="1" Text="ggfdgdg"/>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="DocAppoint">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="ggfdgdg"/>
-                <TextBox Grid.Row="1" Text="ggfdgdg"/>
-            </Grid>
-        </DataTemplate>
-    </UserControl.Resources>
     <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="ShowForward"/>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
 
@@ -104,25 +66,27 @@
         </ToolBarTray>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="137*"/>
-                <RowDefinition Height="29*"/>
-                <RowDefinition Height="257*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <GroupBox x:Name="groupBox" Header="بيانات المعاملة" HorizontalAlignment="Left" Height="100" Margin="22.21,10,0,0" VerticalAlignment="Top" Width="100"/>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="22.21,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="متابعة" VerticalAlignment="Top"/>
-            <Grid HorizontalAlignment="Left" Height="191.657" Margin="57.423,30.212,0,0" Grid.Row="2" VerticalAlignment="Top" Width="567.088">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="13*"/>
-                    <ColumnDefinition Width="68*"/>
-                </Grid.ColumnDefinitions>
-                <ComboBox x:Name="comboBox" Grid.Column="0"  HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="120"/>
-                <ContentPresenter Grid.Column="1"  ContentTemplateSelector="{Binding Mode=OneWay, Source={StaticResource DocForward}}"/>
-
-            </Grid>
-
-
-
-
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="رقم المعاملة" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="التاريخ" VerticalAlignment="Top" Grid.Row="2"/>
+            <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="المسمى" VerticalAlignment="Top" Grid.Row="4"/>
+            <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="الموضوع العام" VerticalAlignment="Top" Grid.Row="6"/>
+            <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="حالة المعاملة" VerticalAlignment="Top" Grid.Row="8"/>
+            <TextBox x:Name="textBox" Margin="5" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+            <TextBox x:Name="textBox_Copy" Margin="5" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+            <TextBox x:Name="textBox_Copy1" Margin="5" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+            <TextBox x:Name="textBox_Copy2" Margin="5" Grid.Row="7" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" AcceptsReturn="True"/>
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="5" Grid.Row="9" VerticalAlignment="Top"/>
 
         </Grid>
     </Grid>

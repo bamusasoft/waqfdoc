@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WDM.DocTrack.Views
 {
     /// <summary>
-    /// Interaction logic for TrackDoc.xaml
+    /// Interaction logic for AddDoc.xaml
     /// </summary>
-    public partial class TrackDoc : UserControl
+    public partial class AddDocView : UserControl
     {
-        public TrackDoc()
+        public AddDocView()
         {
             InitializeComponent();
         }
