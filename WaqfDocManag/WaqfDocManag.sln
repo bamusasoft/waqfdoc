@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDM.DocTrack", "WDM.DocTrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDM.Services", "WDM.Services\WDM.Services.csproj", "{8ADBD1BE-5C17-4482-A077-7602C326AD99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDM.Domain", "WDM.Domain\WDM.Domain.csproj", "{3271AB7C-4A62-4058-9B32-72224693AF2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8ADBD1BE-5C17-4482-A077-7602C326AD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ADBD1BE-5C17-4482-A077-7602C326AD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ADBD1BE-5C17-4482-A077-7602C326AD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3271AB7C-4A62-4058-9B32-72224693AF2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3271AB7C-4A62-4058-9B32-72224693AF2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3271AB7C-4A62-4058-9B32-72224693AF2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3271AB7C-4A62-4058-9B32-72224693AF2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

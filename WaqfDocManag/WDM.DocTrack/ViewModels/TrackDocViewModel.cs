@@ -27,9 +27,6 @@ namespace WDM.DocTrack.ViewModels
             FollowingTypes.Add("احالة");
             FollowingTypes.Add("صادر");
             FollowingTypes.Add("موعد");
-            
-
-
 
         }
         
@@ -38,6 +35,7 @@ namespace WDM.DocTrack.ViewModels
         string _selectedType;
         IEventAggregator _eventAggregator;
         #endregion
+
         #region Properties
         public ObservableCollection<string> FollowingTypes
         {

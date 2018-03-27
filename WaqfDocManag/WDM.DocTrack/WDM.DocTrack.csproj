@@ -92,6 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackDocModule.cs" />
     <Compile Include="UiTemplates\FollowingContentTemplateSelector.cs" />
+    <Compile Include="ViewModels\AddDocViewModel.cs" />
     <Compile Include="ViewModels\TrackDocViewModel.cs" />
     <Compile Include="Views\AddDocView.xaml.cs">
       <DependentUpon>AddDocView.xaml</DependentUpon>
